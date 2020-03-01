@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Define title-->
+        <title>List View App</title>
+        
+        <!--You can load all the css files here -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    
+    <body>
+        <!--HTML content goes here-->
+         <input id="input" type="text"></input>
+         <button id="button" onclick="myFunction()">Insert</button>
+         
+         <ul id="list" class="lala" style="margin-left:600px;"></ul>
+         
+        <!--You can load all the javascript files here-->
+        <script>
+        
+function myFunction(list) {
+    var cl= clickCounter()
+    
+    var rules = "";
+          var x = document.getElementById("input").value;
+          if (x=="")
+          {
+              alert("Please provide the valid input");
+          }
+          else{
+              var li = document.createElement("li");
+                var rule = document.createTextNode(x);
+                li.appendChild(rule);
+                if(cl==3 || cl%3==0)
+                {
+                    document.getElementById("list").appendChild(li).style.color="red";
+                }
+                else
+                {
+                document.getElementById("list").appendChild(li);
+            }
+
+              document.getElementById("input").value = "";
+          }
+         
+        }
+        
+        function clickCounter() {
+          if (typeof(Storage) !== "undefined") {
+            if (localStorage.clickcount) {
+              localStorage.clickcount = Number(localStorage.clickcount)+1;
+            } else {
+              localStorage.clickcount = 1;
+            }
+            
+          }
+          return localStorage.clickcount;
+}
+        </script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
